@@ -63,4 +63,4 @@ A bit later.
 
 # Do you have bugs?
 
-Please add you bugs [here](https://gitlab.com/realistic-ai/paas-client/-/issues)
+Please add you bugs [here](https://github.com/GenerativeCore/pass-client/issues)
