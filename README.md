@@ -1,5 +1,3 @@
-🔥 Project has been moved to https://github.com/GenerativeCore/pass-client
-
 Generative Core PaaS client https://www.generativecore.ai/
 
 # How to install
@@ -51,12 +49,12 @@ npm run upscale
 npm run undress
 ```
 
-## 🔥 Text to GIF
+## 🔥 Text to animation
 
 - [ ] Run in terminal
 
 ```
-npm run txt2gif
+npm run txt2animation
 ```
 
 # In-paint
