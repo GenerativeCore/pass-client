@@ -6,6 +6,7 @@ const file = fs.readFileSync('./for_upscale.png');
 
 const request = {
   type: 'upscale',
+  isFast: true,
   payload: {
     sd: {
       resize_mode: 0,
