@@ -7,7 +7,7 @@
     "undress": "npx ts-node undress.ts",
     "txt2img": "npx ts-node txt2img.ts",
     "upscale": "npx ts-node upscale.ts",
-    "txt2gif": "npx ts-node txt2gif.ts",
+    "txt2animation": "npx ts-node txt2animation.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

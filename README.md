@@ -1,3 +1,5 @@
+🔥 Project has been moved to https://github.com/GenerativeCore/pass-client
+
 Generative Core PaaS client https://www.generativecore.ai/
 
 # How to install
@@ -63,4 +65,4 @@ A bit later.
 
 # Do you have bugs?
 
-Please add you bugs [here](https://github.com/GenerativeCore/pass-client/issues)
+Please add you bugs [here](https://gitlab.com/realistic-ai/paas-client/-/issues)
