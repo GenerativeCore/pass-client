@@ -1,5 +1,9 @@
 Generative Core PaaS client https://www.generativecore.ai/
 
+Check swagger API here https://dev-api.generativecore.ai/swagger/
+
+You need login & password.
+
 # How to install
 
 - [ ] Install NodeJs 16+

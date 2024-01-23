@@ -24,6 +24,7 @@ const file = fs.readFileSync('./for_undress.jpg');
         isFast: true, // VIP queue
         payload: {
             baseModel: 'SD 1.5',
+            preview: true,
             sd: {
                 width: width,
                 height: height,
