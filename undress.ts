@@ -24,6 +24,7 @@ const file = fs.readFileSync('./for_undress.jpg');
         isFast: true, // VIP queue
         payload: {
             baseModel: 'SD 1.5',
+            // raw preview or full undress?
             preview: true,
             sd: {
                 width: width,
@@ -55,7 +56,10 @@ const file = fs.readFileSync('./for_undress.jpg');
             console.log(task);
             const image = task.results.data.images[0];
             let buffer = Buffer.from(image, 'base64');
-            fs.writeFileSync(`images/${id}.png`, buffer);
+            const blurred = await sharp(buffer)
+                .blur(5)
+                .toBuffer();
+            fs.writeFileSync(`images/${id}.png`, blurred);
         } else {
             console.log('task failed', task);
         }
