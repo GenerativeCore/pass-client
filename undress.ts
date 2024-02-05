@@ -23,6 +23,8 @@ const file = fs.readFileSync('./for_undress2.jpg');
         }
     };
 
+    fs.writeFileSync('undress.json', JSON.stringify(request));
+
     try {
         const id = await paas.createTask(request);
         console.log('task created', id);
