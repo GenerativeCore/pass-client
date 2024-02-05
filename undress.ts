@@ -8,7 +8,7 @@ const MAX_HEIGHT = 1024;
 
 const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
 
-const file = fs.readFileSync('./for_undress.jpg');
+const file = fs.readFileSync('./for_undress2.jpg');
 
 (async () => {
     const image = await fit(await sharp(file), {
@@ -19,13 +19,15 @@ const file = fs.readFileSync('./for_undress.jpg');
     const png = await image.png().toBuffer();
     const { width, height } = await sharp(png).metadata();
 
+    const preview = false;
+
     const request = {
         type: 'undress',
         isFast: true, // VIP queue
         payload: {
             baseModel: 'SD 1.5',
             // raw preview or full undress?
-            preview: true,
+            preview: preview,
             sd: {
                 width: width,
                 height: height,
@@ -56,10 +58,12 @@ const file = fs.readFileSync('./for_undress.jpg');
             console.log(task);
             const image = task.results.data.images[0];
             let buffer = Buffer.from(image, 'base64');
-            const blurred = await sharp(buffer)
-                .blur(5)
-                .toBuffer();
-            fs.writeFileSync(`images/${id}.png`, blurred);
+            if (preview) {
+                buffer = await sharp(buffer)
+                    .blur(5)
+                    .toBuffer();
+            }
+            fs.writeFileSync(`images/${id}.png`, buffer);
         } else {
             console.log('task failed', task);
         }
