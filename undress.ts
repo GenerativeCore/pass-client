@@ -25,19 +25,9 @@ const file = fs.readFileSync('./for_undress2.jpg');
         type: 'undress',
         isFast: true, // VIP queue
         payload: {
-            baseModel: 'SD 1.5',
             // raw preview or full undress?
             preview: preview,
-            sd: {
-                width: width,
-                height: height,
-                init_images: ['data:image/png;base64,' + png.toString('base64')],
-                // for draft undress (will be fully implemented 16.10.2023)
-                /*cfg_scale: 0.1,
-                sampler_name: 'Euler a',
-                steps: 1,
-                script_name: 'MaskGeneratorLite'*/
-            }
+            image: 'data:image/png;base64,' + png.toString('base64')
         }
     };
 

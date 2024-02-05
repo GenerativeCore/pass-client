@@ -14,7 +14,7 @@ export const generativeCore = ({ baseUrl, auth }: {
     async createTask(request: Object): Promise<string> {
         const response = await axios({
             method: 'post',
-            url: baseUrl('users/xyzXYZ/tasks'),
+            url: baseUrl('tasks'),
             headers: {
                 'Content-type': 'application/json'
             },
@@ -27,7 +27,7 @@ export const generativeCore = ({ baseUrl, auth }: {
     async checkTask(id: string): Promise<any> {
         const response = await axios({
             method: "get",
-            url: baseUrl(`users/pr0n/tasks/${id}`),
+            url: baseUrl(`tasks/${id}`),
             headers: {
                 "Content-type": "application/json",
             },
