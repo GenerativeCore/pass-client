@@ -11,23 +11,15 @@ const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
 const file = fs.readFileSync('./for_undress2.jpg');
 
 (async () => {
-    const image = await fit(await sharp(file), {
-        maxWidth: MAX_WIDTH,
-        maxHeight: MAX_HEIGHT
-    });
-
-    const png = await image.png().toBuffer();
-    const { width, height } = await sharp(png).metadata();
 
     const preview = false;
-
     const request = {
         type: 'undress',
         isFast: true, // VIP queue
         payload: {
             // raw preview or full undress?
             preview: preview,
-            image: 'data:image/png;base64,' + png.toString('base64')
+            image: 'data:image/jpeg;base64,' + file.toString('base64')
         }
     };
 
