@@ -2,26 +2,9 @@ import fs from 'fs';
 import { generativeCore, delay } from './utils';
 import { BASE_URL, AUTH } from './consts';
 
-const file = fs.readFileSync('./for_upscale.png');
-
 const request = {
   type: 'upscale',
-  payload: {
-    sd: {
-      resize_mode: 0,
-      show_extras_results: true,
-      gfpgan_visibility: 0,
-      codeformer_visibility: 0,
-      codeformer_weight: 0,
-      upscaling_resize: 4,
-      upscaling_crop: true,
-      upscaler_1: 'R-ESRGAN 4x+',
-      upscaler_2: 'None',
-      extras_upscaler_2_visibility: 0,
-      upscale_first: false,
-      image: 'data:image/png;base64,' + file.toString('base64'),
-    },
-  },
+  image: 'data:image/png;base64,' + fs.readFileSync('./for_upscale.png').toString('base64')
 };
 
 const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });

@@ -8,6 +8,8 @@
     "txt2img": "npx ts-node txt2img.ts",
     "upscale": "npx ts-node upscale.ts",
     "txt2animation": "npx ts-node txt2animation.ts",
+    "face2animation": "npx ts-node face2animation.ts",
+    "checkpoints": "npx ts-node checkpoints.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +25,7 @@
   "homepage": "https://gitlab.com/realistic-ai/paas-client#readme",
   "dependencies": {
     "axios": "^1.4.0",
+    "dotenv": "^16.4.2",
     "sharp": "^0.32.6",
     "ts-node": "^10.9.1"
   }

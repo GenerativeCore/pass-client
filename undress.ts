@@ -19,6 +19,9 @@ const file = fs.readFileSync('./for_undress2.jpg');
         payload: {
             // raw preview or full undress?
             preview: preview,
+            // don't pass if fully naked
+            // prompt: 'girl in red dress',
+            // negativePromopt: '',
             image: 'data:image/jpeg;base64,' + file.toString('base64')
         }
     };
