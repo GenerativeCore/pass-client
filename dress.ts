@@ -3,12 +3,7 @@ import sharp, { Sharp } from 'sharp';
 import { generativeCore, delay, fit } from './utils';
 import { BASE_URL, AUTH } from './consts';
 
-const MAX_WIDTH = 1024;
-const MAX_HEIGHT = 1024;
-
 const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
-
-const file = fs.readFileSync('./for_undress2.jpg');
 
 (async () => {
 
@@ -20,9 +15,9 @@ const file = fs.readFileSync('./for_undress2.jpg');
             // raw preview or full undress?
             preview: preview,
             // don't pass if fully naked
-            // prompt: 'girl in red dress',
-            // negativePromopt: '',
-            image: 'data:image/jpeg;base64,' + file.toString('base64')
+            //prompt: 'girl in white dress',
+            //negativePromopt: '',
+            image: 'data:image/jpeg;base64,' + fs.readFileSync('./for_dress.jpg').toString('base64')
         }
     };
 
@@ -50,7 +45,7 @@ const file = fs.readFileSync('./for_undress2.jpg');
                     .blur(5)
                     .toBuffer();
             }
-            fs.writeFileSync(`images/${id}.png`, buffer);
+            fs.writeFileSync(`images/dress_${id}.png`, buffer);
         } else {
             console.log('task failed', task);
         }

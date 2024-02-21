@@ -41,11 +41,19 @@ npm run checkpoints
 - [ ] Run in terminal
 
 ```
-npm run txt2img
+npm run text_to_image
 ```
 
 - [ ] Check `images` folder
-- [ ] Check file `txt2img.ts`
+- [ ] Check file `text-to-image.ts`
+
+## Text to animation
+
+- [ ] Run in terminal
+
+```
+npm run text_to_animation
+```
 
 ## Upscale
 
@@ -55,20 +63,36 @@ npm run txt2img
 npm run upscale
 ```
 
-## 🔥 Undress
+## Dress
 
 - [ ] Run in terminal
 
 ```
-npm run undress
+npm run dress
 ```
 
-## 🔥 Text to animation
+## Face to image
 
 - [ ] Run in terminal
 
 ```
-npm run txt2animation
+npm run face_to_image
+```
+
+## Face to animation
+
+- [ ] Run in terminal
+
+```
+npm run face_to_animation
+```
+
+## Face swap on image
+
+- [ ] Run in terminal
+
+```
+npm run face_swap_on_image
 ```
 
 # In-paint

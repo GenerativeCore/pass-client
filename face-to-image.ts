@@ -2,18 +2,15 @@ import fs from 'fs';
 import { generativeCore, delay } from './utils';
 import { BASE_URL, AUTH } from './consts';
 
-// https://gitlab.com/realistic-ai/paas/render-dispatcher/-/blob/main/tools/http/tasks/create/animate.http
 const request = {
-  type: 'face2animation',
+  type: 'face_to_image',
   payload: {
-    baseModel: 'sd_15',
     checkpoint: 'epicrealism_pureEvolutionV5.safetensors',
-    face: 'data:image/png;base64,' + fs.readFileSync('./girl_face2.png').toString('base64'),
-    prompt: 'dancing naked girl <lora:v2_lora_PanUp:.5>',
+    face: 'data:image/png;base64,' + fs.readFileSync('./girl_face1.png').toString('base64'),
+    prompt: 'full body girl smiling',
     negativePrompt: '',
-    fps: 16,
-    width: 512,
-    height: 512,
+    width: 1024,
+    height: 1024,
     steps: 40
   }
 };
@@ -36,9 +33,9 @@ const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
     } while (task.status === 'pending' || task.status === 'processing');
     if (task.status === 'completed') {
       console.log(task);
-      const { animation } = task.results.data;
-      let buffer = Buffer.from(animation, 'base64');
-      fs.writeFileSync(`images/${id}.mp4`, buffer);
+      const { image } = task.results.data;
+      let buffer = Buffer.from(image, 'base64');
+      fs.writeFileSync(`images/face_to_image_${id}.png`, buffer);
     } else {
       console.log('task failed', task);
     }

@@ -1,16 +1,17 @@
 {
-  "name": "paas-client",
-  "version": "1.0.0",
+  "name": "Generative Core PaaS",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "undress": "npx ts-node undress.ts",
-    "txt2img": "npx ts-node txt2img.ts",
-    "upscale": "npx ts-node upscale.ts",
-    "txt2animation": "npx ts-node txt2animation.ts",
-    "face2animation": "npx ts-node face2animation.ts",
     "checkpoints": "npx ts-node checkpoints.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "text_to_image": "npx ts-node text-to-image.ts",
+    "text_to_animation": "npx ts-node text-to-animation.ts",
+    "face_to_image": "npx ts-node face-to-image.ts",
+    "face_to_animation": "npx ts-node face-to-animation.ts",
+    "face_swap_on_image": "npx ts-node face-swap-on-image.ts",
+    "upscale": "npx ts-node upscale.ts",
+    "dress": "npx ts-node dress.ts"
   },
   "repository": {
     "type": "git",
