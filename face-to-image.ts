@@ -7,7 +7,13 @@ const request = {
   payload: {
     checkpoint: 'epicrealism_pureEvolutionV5.safetensors',
     face: 'data:image/png;base64,' + fs.readFileSync('./girl_face1.png').toString('base64'),
-    prompt: 'full body girl smiling',
+    prompt: 'full body 1girl in office <lora:tonguedrop-d:1>',
+    loras: [
+      {
+        modelName: 'tonguedrop-d',
+        weight: 1
+      }
+    ],
     negativePrompt: '',
     width: 1024,
     height: 1024,

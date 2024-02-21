@@ -9,17 +9,24 @@ const request = {
   payload: {
     // check in README.md
     // SD 1.5
-    //checkpoint: 'epicrealism_naturalSinRC1VAE.safetensors',
-    //prompt: `photo of beautiful, a woman in a, (movie premiere gala:1.1), perfect hair, wearing, ((sexy gryffindor wizard outfit:1.1)), (paparazzi in background), ((Takenokozoku:1.1)), modelshoot style, (extremely detailed CG unity 8k wallpaper), professional majestic, (photography by tim walker:1.1), (Sony a6600 Mirrorless Camera), 24mm, exposure blend, hdr, faded, extremely intricate, High, (Detail:1.1), Sharp focus, dramatic, soft cinematic light, (looking at viewer), (detailed pupils), cute smile, 24mm, 4k textures, soft cinematic light, adobe lightroom, photolab, elegant, ((((cinematic look)))), soothing tones, insane details, hyperdetailed, low contrast`,
-    //negativePrompt: `(((nsfw))), plastic, nudity, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&w)), blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, (tiara), (((cleft))), (badhands)`,
+    checkpoint: 'epicrealism_naturalSinRC1VAE.safetensors',
+    // add LoRAs only for SD 1.5 to prompt
+    prompt: `a balding male accountant in an office <lora:tonguedrop-d:1>`,
+    negativePrompt: `High pass filter, airbrush,portrait,zoomed, soft light, smooth skin,closeup, Anime, fake, cartoon, deformed, extra limbs, extra fingers, mutated hands, bad anatomy, bad proportions , blind, bad eyes, ugly eyes, dead eyes, blur, vignette, out of shot, out of focus, gaussian, closeup, monochrome, grainy, noisy, text, writing, watermark, logo, oversaturation , over saturation, over shadow, floating limbs, disconnected limbs, anime, kitsch, cartoon, penis, fake, (black and white), airbrush, drawing, illustration, boring, 3d render, long neck, out of frame, extra fingers, mutated hands, monochrome, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, glitchy, bokeh, (((long neck))), (child), (childlike), 3D, 3DCG, cgstation, red eyes, multiple subjects, extra heads, close up, man, ((asian)), text, bad anatomy, morphing, messy broken legs decay, ((simple background)), deformed body, lowres, bad anatomy, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low jpeg artifacts, signature, watermark, username, blurry, out of focus, old, amateur drawing, odd, fat, morphing, ((simple background)), artifacts, signature, artist name, [blurry], disfigured, mutated, (poorly hands), messy broken legs, decay, painting, duplicate, closeup`,
+    loras: [
+      {
+        modelName: 'tonguedrop-d',
+        weight: 1
+      }
+    ],
     // SDXL
-    checkpoint: 'afroditexlNudePeople_20Bkdvae.safetensors',
+    //checkpoint: 'afroditexlNudePeople_20Bkdvae.safetensors',
     // SDXL don't like long prompts
-    prompt: `beautiful girl on a beach`,
-    negativePrompt: '',
+    //prompt: `beautiful girl on a beach`,
+    //negativePrompt: '',
     // image size, bigger size
     height: 1024,
-    width: 768,
+    width: 1024,
     // check samplers.webp
     samplerName: 'DPM++ 2M Karras',
     steps: 40

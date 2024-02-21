@@ -10,6 +10,12 @@ const request = {
     checkpoint: 'epicrealism_pureEvolutionV5.safetensors',
     face: 'data:image/png;base64,' + fs.readFileSync('./girl_face1.png').toString('base64'),
     prompt: 'dancing naked girl <lora:v2_lora_PanUp:.5>',
+    loras: [
+      {
+        modelName: 'v2_lora_PanUp',
+        weight: .5
+      }
+    ],
     negativePrompt: '',
     fps: 16,
     width: 512,

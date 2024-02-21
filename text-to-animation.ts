@@ -8,8 +8,18 @@ const request = {
     // use only checkpoints for SD 1.5
     checkpoint: 'revAnimated_v122EOL.safetensors',
     //checkpoint: 'epicrealism_pureEvolutionV5.safetensors',
-    prompt: 'mix4, (8k, RAW photo, best quality, masterpiece:1.2), (realistic, photo-realistic:1.37), 1girl, cute, cityscape, night, rain, wet, professional lighting, photon mapping, radiosity, physically-based rendering, <lora:mix4:.5>, <lora:v2_lora_PanUp:.5>',
+    prompt: 'mix4, (8k, RAW photo, best quality, masterpiece:1.2), (realistic, photo-realistic:1.37), 1girl, cute, cityscape, night, rain, wet, professional lighting, photon mapping, radiosity, physically-based rendering, <lora:mix4:.4>, <lora:v2_lora_PanUp:.5>',
     negativePrompt: 'paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)), skin spots, acnes, skin blemishes, age spot, glans',
+    loras: [
+      {
+        modelName: 'mix4',
+        weight: .4
+      },
+      {
+        modelName: 'v2_lora_PanUp',
+        weight: .5
+      }
+    ],
     // totally we have 48 frames, how much frames per second
     fps: 16,
     // image size
