@@ -3,11 +3,13 @@ import { generativeCore, delay } from './utils';
 import { BASE_URL, AUTH } from './consts';
 
 const request = {
-  type: 'upscale',
+  type: 'upscale-image',
   payload: {
-    image: 'data:image/png;base64,' + fs.readFileSync('./for_upscale.png').toString('base64')
+    image: fs.readFileSync('./for_upscale.png').toString('base64')
   }
 };
+// for debugging purposes
+fs.writeFileSync('payloads/upscale-image.json', JSON.stringify(request, null, '\t'));
 
 const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
 
@@ -25,14 +27,14 @@ const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
       }
     } while (task.status === 'pending' || task.status === 'processing');
     if (task.status === 'completed') {
-      const image = task.results.data.image;
-      let buffer = Buffer.from(image, 'base64');
-      fs.writeFileSync(`images/${id}.png`, buffer);
+      const [image] = task.results.images;
+      let buffer = Buffer.from(image.base64, 'base64');
+      fs.writeFileSync(`images/upscale_image_${id}.png`, buffer);
     } else {
       console.log('task failed', task);
     }
-  } catch (e: unknown) {
-    console.log(e);
+  } catch (e: any) {
+    console.log(e.response.data);
   } finally {
     process.exit(0);
   }

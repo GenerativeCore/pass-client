@@ -3,23 +3,27 @@ import { generativeCore, delay } from './utils';
 import { BASE_URL, AUTH } from './consts';
 
 const request = {
-  type: 'face_to_image',
+  type: 'face-to-image',
   payload: {
     checkpoint: 'epicrealism_pureEvolutionV5.safetensors',
-    face: 'data:image/png;base64,' + fs.readFileSync('./girl_face1.png').toString('base64'),
+    face: fs.readFileSync('./girl_face1.png').toString('base64'),
     prompt: 'full body 1girl in office <lora:tonguedrop-d:1>',
     loras: [
       {
-        modelName: 'tonguedrop-d',
+        modelName: 'tonguedrop-d.safetensors',
         weight: 1
       }
     ],
     negativePrompt: '',
-    width: 1024,
-    height: 1024,
+    size: '768x768',
+    hrEnable: true,
+    upscale: 2,
     steps: 40
   }
 };
+
+// for debugging purposes
+fs.writeFileSync('payloads/face-to-image.json', JSON.stringify(request, null, '\t'));
 
 const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
 
@@ -39,14 +43,14 @@ const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
     } while (task.status === 'pending' || task.status === 'processing');
     if (task.status === 'completed') {
       console.log(task);
-      const { image } = task.results.data;
-      let buffer = Buffer.from(image, 'base64');
+      const [image] = task.results.data.images;
+      let buffer = Buffer.from(image.base64, 'base64');
       fs.writeFileSync(`images/face_to_image_${id}.png`, buffer);
     } else {
       console.log('task failed', task);
     }
-  } catch (e: unknown) {
-    console.log(e);
+  } catch (e: any) {
+    console.log(e.response.data);
   } finally {
     process.exit(0);
   }

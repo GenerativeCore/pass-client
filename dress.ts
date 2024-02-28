@@ -7,13 +7,14 @@ const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
 
 (async () => {
 
-    const preview = false;
+    const preview = true;
+
     const request = {
-        type: 'undress',
+        type: 'dress-on-image',
         isFast: true, // VIP queue
         payload: {
             // raw preview or full undress?
-            preview: preview,
+            preview,
             // don't pass if fully naked
             //prompt: 'girl in white dress',
             //negativePromopt: '',
@@ -49,8 +50,8 @@ const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
         } else {
             console.log('task failed', task);
         }
-    } catch (e: unknown) {
-        console.log(e);
+    } catch (e: any) {
+        console.log(e.response.data);
     } finally {
         process.exit(0);
     }

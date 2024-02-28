@@ -1,6 +1,6 @@
 {
-  "name": "Generative Core PaaS",
-  "version": "1.5.0",
+  "name": "generative-core-api",
+  "version": "3.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
