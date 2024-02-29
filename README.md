@@ -97,7 +97,11 @@ npm run face_swap_on_image
 
 # In-paint
 
-A bit later.
+- [ ] Run in terminal
+
+```
+npm run inpaint
+```
 
 # Do you have bugs?
 

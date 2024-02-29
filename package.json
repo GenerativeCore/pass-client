@@ -11,7 +11,8 @@
     "face_to_animation": "npx ts-node face-to-animation.ts",
     "face_swap_on_image": "npx ts-node face-swap-on-image.ts",
     "upscale": "npx ts-node upscale.ts",
-    "dress": "npx ts-node dress.ts"
+    "dress": "npx ts-node dress.ts",
+    "inpaint": "npx ts-node inpaint.ts"
   },
   "repository": {
     "type": "git",
