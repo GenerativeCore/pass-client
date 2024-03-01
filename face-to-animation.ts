@@ -16,8 +16,8 @@ const request = {
     ],
     negativePrompt: '',
     fps: 16,
-    size: '768x768',
-    steps: 40
+    size: '512x768',
+    steps: 30
   }
 };
 

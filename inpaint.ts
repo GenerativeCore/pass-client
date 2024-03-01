@@ -30,7 +30,6 @@ const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
             denoisingStrength: .95,
             width,
             height,
-            batchSize: 2,
             steps: 35
         }
     };
