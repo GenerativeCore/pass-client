@@ -1,6 +1,6 @@
 Generative Core PaaS client https://www.generativecore.ai/
 
-Check swagger API here https://dev-api.generativecore.ai/swagger/
+Check swagger API here https://api.generativecore.ai/swagger/
 
 You need login & password.
 
