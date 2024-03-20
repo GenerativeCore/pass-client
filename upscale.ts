@@ -27,7 +27,8 @@ const paas = generativeCore({ baseUrl: BASE_URL, auth: AUTH });
       }
     } while (task.status === 'pending' || task.status === 'processing');
     if (task.status === 'completed') {
-      const [image] = task.results.images;
+      console.log(task);
+      const {image} = task.results.data;
       let buffer = Buffer.from(image.base64, 'base64');
       fs.writeFileSync(`images/upscale_image_${id}.png`, buffer);
     } else {

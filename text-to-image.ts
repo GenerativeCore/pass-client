@@ -42,9 +42,9 @@ const request = {
     // SDXL 704x1408 704x1344 768x1344 768x1280 832x1216 832x1152 896x1152 896x1088 960x1088 960x1024 1024x1024 1024x960 1088x960 1088x896 1152x896 1152x832 1216x832 1280x768 1344x768 1344x704 1408x704 1472x704 1536x640 1600x640 1664x576 1728x576 512x512 768x768 512x768 768x512 576x768 768x576 512x912 912x512
     size: '1024x1024',
     // more details
-    hrEnable: true,
+    hrEnable: false,
     // double size after generation
-    upscale: 2,
+    upscale: 1,
     // real camera effect
     sharpness: 15,
     // check samplers.webp

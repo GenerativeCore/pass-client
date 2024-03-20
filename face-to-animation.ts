@@ -7,10 +7,18 @@ const request = {
   payload: {
     checkpoint: 'epicrealism_pureEvolutionV5.safetensors',
     face: fs.readFileSync('./girl_face1.png').toString('base64'),
-    prompt: 'dancing naked girl <lora:v2_lora_PanUp:.5>',
+    prompt: 'dancing naked girl <lora:mm_sd15_v2_lora_ZoomIn:.5>',
     loras: [
       {
-        modelName: 'v2_lora_PanUp.safetensors',
+        // mm_sd15_v2_lora_ZoomIn.safetensors
+        // mm_sd15_v2_lora_ZoomOut.safetensors
+        // mm_sd15_v2_lora_RollingClockwise.safetensors
+        // mm_sd15_v2_lora_RollingAnticlockwise.safetensors
+        // mm_sd15_v2_lora_TiltUp.safetensors
+        // mm_sd15_v2_lora_PanRight.safetensors
+        // mm_sd15_v2_lora_TiltDown.safetensors
+        // mm_sd15_v2_lora_PanLeft.safetensors
+        modelName: 'mm_sd15_v2_lora_ZoomIn.safetensors',
         weight: .5
       }
     ],
